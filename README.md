@@ -24,7 +24,7 @@ node.js Script to compare the Premium ammo cost from 3.8 to 3.9 version
     - The Per Ammmo Value (comparisonByAmmo.js and GoldRoundsComparisonPerAmmo.json)
       - Basic Data Structure:
         - Nation
-          -Ammo Name
+          - Ammo Name
             - Cost in 3.8
             - Cost in 3.9
             - Percentage Discount
