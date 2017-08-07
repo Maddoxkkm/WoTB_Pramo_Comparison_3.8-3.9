@@ -69,4 +69,4 @@ for (y=0; y < list.folders.length; y++){
 console.log("Overall Discount: " + ((totalPrice-totalPriceNew)/totalPrice*100) )
 console.log("Overall Discount Excluding Zeros: " + ((excludeZero-excludeZeroNew)/excludeZero*100))
 var endresult = JSON.stringify(prammoComparison)
-fs.writeFileSync('./GoldRoundsComparison.json', endresult)
+fs.writeFileSync('./GoldRoundsComparisonPerAmmo.json', endresult)
