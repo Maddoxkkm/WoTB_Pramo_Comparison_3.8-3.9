@@ -11,6 +11,8 @@ node.js Script to compare the Premium ammo cost from 3.8 to 3.9 version
       - at the end there will be 2 values:
         - the "Overall Discount" indicates the Overall Discount Average for this set of Ammo
         - the "Overall Discount Excluding Zeros" indicates the Overall Discount Average, Excluding all 0 Discount ammunitions.
+		- the "Average Percentage" Indicates the Average Discount Percentage for this set of ammo
+		- the "Average Percentage Excluding Zeros" Indicates the Average Discount Percentage, Excluding all 0 Discount ammunitions.
   - In the JSON Data:
     - The Per gun value (comparison.js and GoldRoundsComparison.json)
       - Basic Data Structure: 

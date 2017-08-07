@@ -12,6 +12,10 @@ var totalPrice = 0
 var totalPriceNew = 0
 var excludeZero = 0
 var excludeZeroNew = 0
+var percentage = 0
+var count = 0 
+var percentageExcludeZero = 0
+var countpercentage = 0
 //------------------------------------------
 console.log("pre-loading done!")
 //precompile Shell data into Json first
@@ -59,9 +63,13 @@ for (y=0; y < list.folders.length; y++){
 						"3.9 Price": afterPrice,
 						"Discount Percentage": discount
 					}
+					percentage = percentage + discount
+					count = count + 1
 					totalPrice = totalPrice + price
 					totalPriceNew = totalPriceNew + afterPrice
 					if (price-afterPrice != 0){
+						percentageExcludeZero = percentageExcludeZero + discount
+						countpercentage = countpercentage + 1
 						excludeZero = excludeZero + price
 						excludeZeroNew = excludeZeroNew + afterPrice
 					}
@@ -92,6 +100,8 @@ for (y=0; y < list.folders.length; y++){
 };
 console.log("Overall Discount: " + ((totalPrice-totalPriceNew)/totalPrice*100) )
 console.log("Overall Discount Excluding Zeros: " + ((excludeZero-excludeZeroNew)/excludeZero*100))
+console.log("Average Percentage: " + percentage/count)
+console.log("Average Percentage Excluding Zeros: " + percentageExcludeZero/countpercentage) 
 var endresult = JSON.stringify(prammoComparison)
 fs.writeFileSync('./GoldRoundsComparison.json', endresult)
 	
