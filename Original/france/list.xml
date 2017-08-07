@@ -1,0 +1,125 @@
+<root>
+	<D2>
+		<id>1</id>
+		<userString>#france_vehicles:D2</userString>
+		<shortUserString>#france_vehicles:D2_short</shortUserString>
+		<description>#france_vehicles:D2_descr</description>
+		<price>42500</price>
+		<enrichmentPermanentCost>0</enrichmentPermanentCost>
+		<tags>mediumTank wetCombatPack_class1_user enhancedVertical_springs_user</tags>
+		<level>3</level>
+	</D2>
+	<RenaultFT>
+		<id>2</id>
+		<userString>#france_vehicles:RenaultFT</userString>
+		<shortUserString>#france_vehicles:RenaultFT_short</shortUserString>
+		<description>#france_vehicles:RenaultFT_descr</description>
+		<price>0</price>
+		<enrichmentPermanentCost>0</enrichmentPermanentCost>
+		<tags>lightTank</tags>
+		<level>1</level>
+	</RenaultFT>
+	<B1>
+		<id>4</id>
+		<userString>#france_vehicles:B1</userString>
+		<shortUserString>#france_vehicles:B1_short</shortUserString>
+		<description>#france_vehicles:B1_descr</description>
+		<price>185000</price>
+		<enrichmentPermanentCost>0</enrichmentPermanentCost>
+		<tags>heavyTank mediumCaliberTankRammer_user wetCombatPack_class2_user enhancedSprings_class3_user</tags>
+		<level>4</level>
+	</B1>
+	<D1>
+		<id>6</id>
+		<userString>#france_vehicles:D1</userString>
+		<shortUserString>#france_vehicles:D1_short</shortUserString>
+		<description>#france_vehicles:D1_descr</description>
+		<price>3800</price>
+		<enrichmentPermanentCost>0</enrichmentPermanentCost>
+		<tags>lightTank wetCombatPack_class1_user enhancedVertical_springs_user</tags>
+		<level>2</level>
+	</D1>
+	<ARL_44>
+		<id>10</id>
+		<userString>#france_vehicles:ARL_44</userString>
+		<shortUserString>#france_vehicles:ARL_44_short</shortUserString>
+		<description>#france_vehicles:ARL_44_descr</description>
+		<price>925000</price>
+		<enrichmentPermanentCost>0</enrichmentPermanentCost>
+		<tags>heavyTank largeCaliberTankRammer_user wetCombatPack_class2_user enhancedSprings_class3_user</tags>
+		<level>6</level>
+	</ARL_44>
+	<AMX_50_100>
+		<id>12</id>
+		<userString>#france_vehicles:AMX_50_100</userString>
+		<shortUserString>#france_vehicles:AMX_50_100_short</shortUserString>
+		<description>#france_vehicles:AMX_50_100_descr</description>
+		<price>2552500</price>
+		<enrichmentPermanentCost>0</enrichmentPermanentCost>
+		<tags>heavyTank aimingStabilizer_Mk2_user wetCombatPack_class2_user enhancedTorsions5t_user</tags>
+		<level>8</level>
+	</AMX_50_100>
+	<AMX_50_120>
+		<id>15</id>
+		<userString>#france_vehicles:AMX_50_120</userString>
+		<shortUserString>#france_vehicles:AMX_50_120_short</shortUserString>
+		<description>#france_vehicles:AMX_50_120_descr</description>
+		<price>3565000</price>
+		<enrichmentPermanentCost>0</enrichmentPermanentCost>
+		<tags>heavyTank aimingStabilizer_Mk2_user wetCombatPack_class2_user enhancedTorsions5t_user</tags>
+		<level>9</level>
+	</AMX_50_120>
+	<AMX_50B>
+		<id>24</id>
+		<userString>#france_vehicles:AMX_50_68t</userString>
+		<shortUserString>#france_vehicles:AMX_50_68t_short</shortUserString>
+		<description>#france_vehicles:AMX_50_68t_descr</description>
+		<price>6100000</price>
+		<enrichmentPermanentCost>0</enrichmentPermanentCost>
+		<tags>heavyTank wetCombatPack_class2_user aimingStabilizer_Mk2_user enhancedTorsions5t_user</tags>
+		<level>10</level>
+	</AMX_50B>
+	<BDR_G1B>
+		<id>26</id>
+		<userString>#france_vehicles:BDR_G1B</userString>
+		<shortUserString>#france_vehicles:BDR_G1B_short</shortUserString>
+		<description>#france_vehicles:BDR_G1B_descr</description>
+		<price>400000</price>
+		<enrichmentPermanentCost>0</enrichmentPermanentCost>
+		<tags>heavyTank mediumCaliberTankRammer_user wetCombatPack_class2_user enhancedSprings_class3_user</tags>
+		<level>5</level>
+	</BDR_G1B>
+	<AMX_M4_1945>
+		<id>27</id>
+		<userString>#france_vehicles:AMX_M4_1945</userString>
+		<shortUserString>#france_vehicles:AMX_M4_1945_short</shortUserString>
+		<description>#france_vehicles:AMX_M4_1945_descr</description>
+		<price>1395000</price>
+		<enrichmentPermanentCost>0</enrichmentPermanentCost>
+		<tags>heavyTank largeCaliberTankRammer_user wetCombatPack_class2_user enhancedSprings_class3_user</tags>
+		<level>7</level>
+	</AMX_M4_1945>
+	<F68_AMX_Chasseur_de_char_46>
+		<id>248</id>
+		<userString>#france_vehicles:F68_AMX_Chasseur_de_char_46</userString>
+		<shortUserString>#france_vehicles:F68_AMX_Chasseur_de_char_46_short</shortUserString>
+		<description>#france_vehicles:F68_AMX_Chasseur_de_char_46_descr</description>
+		<price>7300<gold/>
+		</price>
+		<enrichmentPermanentCost>0</enrichmentPermanentCost>
+		<notInShop>true</notInShop>
+		<tags>mediumTank secret InGame enhancedTorsions3t_user mediumCaliberTankRammer_user wetCombatPack_class1_user aimingStabilizer_Mk1_user</tags>
+		<level>8</level>
+	</F68_AMX_Chasseur_de_char_46>
+	<FCM_50t>
+		<id>250</id>
+		<userString>#france_vehicles:FCM_50t</userString>
+		<description>#france_vehicles:FCM_50t_descr</description>
+		<price>7350<gold/>
+		</price>
+		<enrichmentPermanentCost>0</enrichmentPermanentCost>
+		<notInShop>true</notInShop>
+		<tags>mediumTank aimingStabilizer_Mk2_user largeCaliberTankRammer_user wetCombatPack_class2_user enhancedTorsions5t_user</tags>
+		<level>8</level>
+	</FCM_50t>
+</root>

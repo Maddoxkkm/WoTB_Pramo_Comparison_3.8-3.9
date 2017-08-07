@@ -1,0 +1,23 @@
+<root>
+	<ids>
+		<Chassis_D2>2</Chassis_D2>
+		<Chassis_RenaultFT2>5</Chassis_RenaultFT2>
+		<Chassis_B1>8</Chassis_B1>
+		<Chassis_B1_2>9</Chassis_B1_2>
+		<Chassis_D1_2_2>13</Chassis_D1_2_2>
+		<Chassis_ARL_44>17</Chassis_ARL_44>
+		<Chassis_ARL_44_2>18</Chassis_ARL_44_2>
+		<Chassis_AMX_50_100>21</Chassis_AMX_50_100>
+		<Chassis_AMX_50_100_2>22</Chassis_AMX_50_100_2>
+		<Chassis_AMX_50_120>27</Chassis_AMX_50_120>
+		<Chassis_AMX_50_120_2>28</Chassis_AMX_50_120_2>
+		<Chassis_BDR_G1B>31</Chassis_BDR_G1B>
+		<Chassis_AMX_50_68t>44</Chassis_AMX_50_68t>
+		<Chassis_BDR_G1B_2>47</Chassis_BDR_G1B_2>
+		<Chassis_AMX_M4_1945>48</Chassis_AMX_M4_1945>
+		<Chassis_AMX_M4_1945_2>49</Chassis_AMX_M4_1945_2>
+		<Chassis_FCM_50t>95</Chassis_FCM_50t>
+		<Chassis_AMX_Chasseur_de_char_46>112</Chassis_AMX_Chasseur_de_char_46>
+	</ids>
+	<shared/>
+</root>
