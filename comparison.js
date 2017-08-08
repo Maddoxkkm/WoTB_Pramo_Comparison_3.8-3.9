@@ -8,6 +8,7 @@ var fs = require('fs')
 var parseString = require('xml2js').parseString;
 var xml2js = require('xml2js');
 var list = require('./folders.json')
+var yaml = require('js-yaml')
 var totalPrice = 0
 var totalPriceNew = 0
 var excludeZero = 0
@@ -18,7 +19,12 @@ var percentageExcludeZero = 0
 var countpercentage = 0
 //------------------------------------------
 console.log("pre-loading done!")
+//create the strings data
+var yamlprased = yaml.safeLoad(fs.readFileSync('en.yaml', 'utf8'));
+fs.writeFileSync('strings.json', JSON.stringify(yamlprased))
+var strings = require('./strings.json')
 //precompile Shell data into Json first
+
 for (y=0; y < list.folders.length; y++){
 	console.log("now staring to process nation: " + list.folders[y])
 	prammoComparison[list.folders[y]] = {}
@@ -33,8 +39,14 @@ for (y=0; y < list.folders.length; y++){
 		var write = JSON.stringify(result)
 		fs.writeFileSync('After/shells_' + list.folders[y] + '.json', write)
 	})
+	var data = fs.readFileSync('Original/' + currentdir + '/list.xml', 'utf8')
+	parseString(data, function(err, result){
+		var write = JSON.stringify(result)
+		fs.writeFileSync('Original/list_' + list.folders[y] + '.json', write)
+	})
 	
 	//end of precompliation
+	var tankNameXML = require('./Original/list_' + list.folders[y] + '.json')
 	var beforeShells = require('./Original/shells_' + list.folders[y] + '.json')
 	var afterShells = require('./After/shells_' + list.folders[y] + '.json')
 	
@@ -48,17 +60,19 @@ for (y=0; y < list.folders.length; y++){
 		for (i=0; i < gunarray.length; i++){
 			var currentgun = eval(result.root.shared[0][gunarray[i]]);
 			console.log("Currently Processing Gun: " + gunarray[i]);
-			prammoComparison[list.folders[y]][gunarray[i]] = {}
-			prammoComparison[list.folders[y]][gunarray[i]]["Gun Used By Tanks"] = []
+			var gunName = strings[currentgun[0].userString[0]]
+			prammoComparison[list.folders[y]][gunName] = {}
+			prammoComparison[list.folders[y]][gunName]["Gun Used By Tanks"] = []
 			//get the shell caliber
 			var shellarray = Object.keys(currentgun[0].shots[0]);
 			for (z=0; z < shellarray.length; z++){
 				var currentshell = shellarray[z]; //no changes needed
+				var shellName = strings[beforeShells.root[currentshell][0].userString[0]]
 				if(typeof beforeShells.root[currentshell][0].price[0] == 'object'){
 					var price = beforeShells.root[currentshell][0].price[0]._ * 400
 					var afterPrice = afterShells.root[currentshell][0].price[0]._ * 400
 					var discount = (( price - afterPrice ) / price * 100)
-					prammoComparison[list.folders[y]][gunarray[i]][shellarray[z]]={
+					prammoComparison[list.folders[y]][gunName][shellName]={
 						"3.8 Price": price,
 						"3.9 Price": afterPrice,
 						"Discount Percentage": discount
@@ -88,9 +102,9 @@ for (y=0; y < list.folders.length; y++){
 					for(b = 0; b < pertank.length; b++){
 						var currenttank = fs.readFileSync('Original/' + list.folders[y] + '/' + pertank[b], 'utf8')
 						if(currenttank.search("<" + gunarray[i] + ">") != -1){
-							var tankName = pertank[b].substr(0, pertank[b].search(".xml"))
+							var tankName = strings[tankNameXML.root[pertank[b].substr(0, pertank[b].search(".xml"))][0].userString[0]]
 							
-							prammoComparison[list.folders[y]][gunarray[i]]["Gun Used By Tanks"].splice(0,0, tankName)
+							prammoComparison[list.folders[y]][gunName]["Gun Used By Tanks"].splice(0,0, tankName)
 						}
 					}
 				}
