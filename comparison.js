@@ -17,6 +17,8 @@ var percentage = 0
 var count = 0 
 var percentageExcludeZero = 0
 var countpercentage = 0
+
+var exportData = {'root':[]}
 //------------------------------------------
 console.log("pre-loading done!")
 //create the strings data
@@ -58,25 +60,31 @@ for (y=0; y < list.folders.length; y++){
 		
 		//get the current gun
 		for (i=0; i < gunarray.length; i++){
+			var tanksUsesGun = ""
+			var price
+			var afterPrice
+			var discount
+			var caliber
 			var currentgun = eval(result.root.shared[0][gunarray[i]]);
 			console.log("Currently Processing Gun: " + gunarray[i]);
 			var gunName = strings[currentgun[0].userString[0]]
-			prammoComparison[list.folders[y]][gunName] = {}
-			prammoComparison[list.folders[y]][gunName]["Gun Used By Tanks"] = []
+			//prammoComparison[list.folders[y]][gunName] = {}
+			//prammoComparison[list.folders[y]][gunName]["Gun Used By Tanks"] = []
 			//get the shell caliber
 			var shellarray = Object.keys(currentgun[0].shots[0]);
 			for (z=0; z < shellarray.length; z++){
 				var currentshell = shellarray[z]; //no changes needed
 				var shellName = strings[beforeShells.root[currentshell][0].userString[0]]
 				if(typeof beforeShells.root[currentshell][0].price[0] == 'object'){
-					var price = beforeShells.root[currentshell][0].price[0]._ * 400
-					var afterPrice = afterShells.root[currentshell][0].price[0]._ * 400
-					var discount = (( price - afterPrice ) / price * 100)
-					prammoComparison[list.folders[y]][gunName][shellName]={
-						"3.8 Price": price,
-						"3.9 Price": afterPrice,
-						"Discount Percentage": discount
-					}
+					price = beforeShells.root[currentshell][0].price[0]._ * 400
+					afterPrice = afterShells.root[currentshell][0].price[0]._ * 400
+					discount = (( price - afterPrice ) / price * 100)
+					caliber = beforeShells.root[currentshell][0].caliber[0]
+					//prammoComparison[list.folders[y]][gunName][shellName]={
+					//	"3.8 Price": price,
+					//	"3.9 Price": afterPrice,
+					//	"Discount Percentage": discount
+					//}
 					percentage = percentage + discount
 					count = count + 1
 					totalPrice = totalPrice + price
@@ -103,19 +111,35 @@ for (y=0; y < list.folders.length; y++){
 						var currenttank = fs.readFileSync('Original/' + list.folders[y] + '/' + pertank[b], 'utf8')
 						if(currenttank.search("<" + gunarray[i] + ">") != -1){
 							var tankName = strings[tankNameXML.root[pertank[b].substr(0, pertank[b].search(".xml"))][0].userString[0]]
-							
-							prammoComparison[list.folders[y]][gunName]["Gun Used By Tanks"].splice(0,0, tankName)
+							if(tanksUsesGun === ""){
+								tanksUsesGun = tankName
+							} else {
+								tanksUsesGun = tanksUsesGun + ", " + tankName
+							}
+							//prammoComparison[list.folders[y]][gunName]["Gun Used By Tanks"].splice(0,0, tankName)
 						}
 					}
+					exportData.root.push({
+						'Nation': list.folders[y],
+						'Gun': gunarray[i],
+						'In-game Gun Name': gunName,
+						'Gun Used by Tanks:' : tanksUsesGun,
+						'Shell': shellarray[z],
+						'In-game Shell Name:': shellName,
+						'Shell Caliber': caliber,
+						'3.8 Price': price,
+						'3.9 Price': afterPrice,
+						'Discount Percentage': discount
+					})
 				}
 			}
 		}
 	});
+	
 };
 console.log("Overall Discount: " + ((totalPrice-totalPriceNew)/totalPrice*100) )
 console.log("Overall Discount Excluding Zeros: " + ((excludeZero-excludeZeroNew)/excludeZero*100))
 console.log("Average Percentage: " + percentage/count)
 console.log("Average Percentage Excluding Zeros: " + percentageExcludeZero/countpercentage) 
-var endresult = JSON.stringify(prammoComparison)
-fs.writeFileSync('./GoldRoundsComparison.json', endresult)
-	
+var endresult = JSON.stringify(exportData)
+fs.writeFileSync('./ComparisonXLS.json', endresult)
